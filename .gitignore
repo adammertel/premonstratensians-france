@@ -1,1 +1,3 @@
 data/srtm
+*.tiff*
+*.tif*
