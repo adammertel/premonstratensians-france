@@ -1,0 +1,67 @@
+:root {
+  --panel-w: 20em;
+}
+
+button {
+  @apply text-white;
+  @apply font-bold;
+  @apply text-xs;
+  @apply py-2;
+  @apply px-3;
+  @apply rounded;
+  @apply m-2;
+  @apply border-white;
+  @apply shadow-none;
+}
+
+button.primary {
+  @apply bg-muni;
+}
+button.secondary {
+  @apply bg-secondary;
+}
+button.danger {
+  @apply bg-danger;
+}
+button.success {
+  @apply bg-success;
+}
+
+.app-wrapper {
+  @apply absolute;
+  @apply .inset-y-0;
+  @apply right-0;
+  @apply left-0;
+  .panel {
+    width: var(--panel-w);
+    @apply absolute;
+    @apply bg-white;
+    @apply z-10;
+    @apply inset-y-0;
+    @apply left-0;
+    .content {
+      @apply p-4;
+    }
+    .heading {
+      @apply mb-4;
+    }
+  }
+  .map {
+    @apply z-0;
+    @apply absolute;
+    @apply inset-y-0;
+    @apply right-0;
+    width: calc(100% - var(--panel-w));
+    .leaflet-container {
+      @apply w-full;
+      @apply h-full;
+      @apply z-10;
+    }
+    .info {
+      @apply absolute;
+      @apply z-20;
+      @apply p-4;
+      @apply bottom-0;
+    }
+  }
+}
