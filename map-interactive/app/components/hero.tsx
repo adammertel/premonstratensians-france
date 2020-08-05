@@ -17,12 +17,12 @@ export const Hero: React.FC<HeroProps> = ({}) => {
       }}
     >
       <h2 className="heading text-white font-bold">
-        Premonstratensian monasteries
+        Premonstratensian monasteries in France
       </h2>
       <h4 className="subheading text-white font-medium">
-        Premonstratensian monasteries
+        taken from from Ardura 1993
         <br />
-        iin France (from Ardura 1993) (v. {globals.version})
+        (v. {globals.version})
       </h4>
     </div>
   );

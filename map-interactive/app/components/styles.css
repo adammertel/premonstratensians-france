@@ -43,10 +43,21 @@ button.success {
 
 .app-wrapper {
   @apply absolute;
-  @apply .inset-y-0;
+  @apply inset-y-0;
   @apply right-0;
   @apply left-0;
   .panel {
+    .dissinet-logo {
+      svg {
+        fill: theme("colors.muni");
+      }
+    }
+    .heading {
+      font-size: 1.4rem;
+    }
+    .subheading {
+      font-size: 0.9rem;
+    }
     width: var(--panel-w);
     @apply absolute;
     @apply bg-white;
