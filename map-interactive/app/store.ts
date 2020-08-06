@@ -34,7 +34,7 @@ export default class AppStore {
             active: true,
           },
         ],
-        fn: (item, options) => {
+        filterFn: (item, options) => {
           if (options.every((o) => o.active)) {
             return true;
           } else if (options.every((o) => !o.active)) {
@@ -71,7 +71,7 @@ export default class AppStore {
             active: true,
           },
         ],
-        fn: (item, options) => {
+        filterFn: (item, options) => {
           if (options.every((o) => o.active)) {
             return true;
           } else if (options.every((o) => !o.active)) {
@@ -92,21 +92,8 @@ export default class AppStore {
       {
         label: "Time",
         type: "time",
-        fn: (item, options) => {
-          if (options.every((o) => o.active)) {
-            return true;
-          } else if (options.every((o) => !o.active)) {
-            return false;
-          } else {
-            const itemGender = item.gender;
-            const thisOption = options.find((o) => o.value === itemGender);
-
-            if (thisOption) {
-              return thisOption.active;
-            } else {
-              return false;
-            }
-          }
+        filterFn: (item, options) => {
+          return true;
         },
       },
     ]);
@@ -114,7 +101,14 @@ export default class AppStore {
 
   @computed
   get mapData(): { y_coordinates; x_coordinates }[] {
-    return this._data.filter((i) => i.y_coordinates && i.x_coordinates);
+    const dataFilters = this.filters;
+    return this._data
+      .filter((i) => i.y_coordinates && i.x_coordinates)
+      .filter((item) => {
+        return dataFilters.every((filterGroup) =>
+          filterGroup.filterFn(item, filterGroup.options)
+        );
+      });
   }
 
   @computed
