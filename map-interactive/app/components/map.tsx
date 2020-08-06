@@ -67,6 +67,7 @@ export const MapComponent: React.FC<Props> = observer(
           ref={mapRef}
           onViewportChanged={handleMapMove}
           maxZoom={11}
+          minZoom={6}
         >
           <LayersControl position="topright">
             <LayersControl.BaseLayer

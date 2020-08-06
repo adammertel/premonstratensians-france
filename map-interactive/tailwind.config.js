@@ -14,6 +14,10 @@ module.exports = {
     colors: {
       transparent: "transparent",
       muni: "#0000dc",
+
+      male: "#4ecdc4",
+      female: "#ff6b6b",
+      double: "#ffe66d",
       secondary: "#dcdc00",
       danger: "#dc0000",
       success: "#00dc00",
