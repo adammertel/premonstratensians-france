@@ -1,5 +1,11 @@
 import * as React from "react";
 import { observer } from "mobx-react";
+import Slider, { Range } from "rc-slider";
+import Tooltip from "rc-tooltip";
+
+import { globals } from "./../index";
+
+import "rc-slider/assets/index.css";
 
 type LegendProps = {
   store;
@@ -44,7 +50,7 @@ export const Legend: React.FC<LegendProps> = observer(({ store }) => {
       {filters.map((filter) => {
         return (
           <div
-            className={"filter-group filter-group-${filter.label}"}
+            className={`filter-group filter-group-${filter.label}`}
             key={filter.label}
           >
             <b>{filter.label}</b>
@@ -61,7 +67,18 @@ export const Legend: React.FC<LegendProps> = observer(({ store }) => {
                     option.label
                   );
                 })}
-              {filter.type === "time" && <div>sliders</div>}
+              {filter.type === "time" && (
+                <div>
+                  <>
+                    <Range
+                      min={globals.dates[0]}
+                      max={globals.dates[1]}
+                      defaultValue={globals.dates}
+                      allowCross={false}
+                    />
+                  </>
+                </div>
+              )}
             </ul>
           </div>
         );
