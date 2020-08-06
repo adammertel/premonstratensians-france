@@ -33,12 +33,15 @@
   ],
   "dependencies": {
     "classnames": "^2.2.6",
+    "leaflet.markercluster": "^1.4.1",
+    "leaflet.markercluster.placementstrategies": "^0.2.0",
     "mobx": "^5.15.4",
     "mobx-react": "^6.2.5",
     "rc-slider": "^9.2.4",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-leaflet": "^2.7.0",
+    "react-leaflet-markercluster": "^2.0.0",
     "typescript": "^3.9.7"
   },
   "devDependencies": {

@@ -87,7 +87,6 @@ button.success {
           text-shadow: 0 0 2px black, 0 0 2px black, 0 0 2px black,
             0 0 2px black, 0 0 2px black, 0 0 2px black, 0 0 2px black,
             0 0 2px black;
-          font-size: 1.6em;
         }
         .gender-m {
           color: blue;
@@ -97,6 +96,32 @@ button.success {
         }
         .gender-d {
           color: orange;
+        }
+      }
+
+      .marker-cluster {
+        div.outer {
+          @apply bg-black;
+          width: 24px;
+          height: 24px;
+          text-align: center;
+          border-radius: 15px;
+          @apply absolute;
+          div.inner {
+            @apply bg-muni;
+            @apply absolute;
+            margin-left: 2px;
+            margin-top: 2px;
+            width: 20px;
+            height: 20px;
+            text-align: center;
+            border-radius: 15px;
+            span.label {
+              @apply text-white;
+              @apply font-bold;
+              @apply align-middle;
+            }
+          }
         }
       }
     }

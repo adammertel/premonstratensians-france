@@ -2,6 +2,9 @@ import React, { useRef, useEffect } from "react";
 import { observer } from "mobx-react";
 import L, { divIcon } from "leaflet";
 
+import MarkerClusterGroup from "react-leaflet-markercluster";
+import "leaflet.markercluster.placementstrategies";
+
 import {
   Map,
   Marker,
@@ -17,7 +20,7 @@ type Props = {
   handleMapMoved: Function;
 };
 
-const iconSize = [12, 12];
+const iconSize = [20, 20];
 const createIcon = (item) => {
   let iconShape = "⏹";
   if (item["status_or_type"] === "abbey") {
@@ -27,9 +30,9 @@ const createIcon = (item) => {
   }
 
   return divIcon({
-    html: `<span class="icon gender-${item.gender}">${iconShape}</span>`,
+    html: `<span class="icon gender-${item.gender}" style="font-size:${iconSize[0]}px">${iconShape}</span>`,
     className: "marker-icon",
-    iconAnchor: [iconSize[0] / 2, iconSize[1]],
+    iconAnchor: [iconSize[0] / 2, iconSize[1] / 2],
     iconSize: iconSize,
   });
 };
@@ -63,6 +66,7 @@ export const MapComponent: React.FC<Props> = observer(
           zoom={zoom}
           ref={mapRef}
           onViewportChanged={handleMapMove}
+          maxZoom={11}
         >
           <LayersControl position="topright">
             <LayersControl.BaseLayer
@@ -82,15 +86,37 @@ export const MapComponent: React.FC<Props> = observer(
             </LayersControl.BaseLayer>
           </LayersControl>
           <LayerGroup>
-            {data.map((item, ii) => {
-              return (
-                <Marker
-                  key={ii}
-                  position={[item.y_coordinates, item.x_coordinates]}
-                  icon={createIcon(item)}
-                />
-              );
-            })}
+            <MarkerClusterGroup
+              showCoverageOnHover={false}
+              spiderLegPolylineOptions={{ weight: 0 }}
+              clockHelpingCircleOptions={{
+                weight: 0.7,
+                opacity: 1,
+                color: "black",
+                fillOpacity: 0,
+                dashArray: "10 5",
+              }}
+              elementsPlacementStrategy="clock-concentric"
+              helpingCircles={true}
+              maxClusterRadius={25}
+              iconCreateFunction={(cluster) => {
+                return divIcon({
+                  html: `<div class="outer"><div class="inner"><span class="label">${cluster.getChildCount()}</span></div></div>`,
+                  className: "marker-cluster",
+                  iconSize: [20, 20],
+                });
+              }}
+            >
+              {data.map((item, ii) => {
+                return (
+                  <Marker
+                    key={ii}
+                    position={[item.y_coordinates, item.x_coordinates]}
+                    icon={createIcon(item)}
+                  />
+                );
+              })}
+            </MarkerClusterGroup>
           </LayerGroup>
         </Map>
       </div>
