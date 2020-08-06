@@ -127,8 +127,8 @@ export default class AppStore {
           return (
             item["foundation_earliest"] &&
             item["dissolution_latest"] &&
-            item["foundation_earliest"] < to &&
-            item["dissolution_latest"] > from
+            item["foundation_earliest"] <= to &&
+            item["dissolution_latest"] >= from
           );
         },
       },
@@ -143,13 +143,15 @@ export default class AppStore {
   @computed
   get activeData(): { y_coordinates; x_coordinates }[] {
     const dataFilters = this.filters;
-    return this._data
-      .filter((i) => i.y_coordinates && i.x_coordinates)
-      .filter((item) => {
-        return dataFilters.every((filterGroup) =>
-          filterGroup.filterFn(item, filterGroup)
-        );
-      });
+    return (
+      this._data
+        //.filter((i) => i.y_coordinates && i.x_coordinates)
+        .filter((item) => {
+          return dataFilters.every((filterGroup) =>
+            filterGroup.filterFn(item, filterGroup)
+          );
+        })
+    );
   }
 
   @computed

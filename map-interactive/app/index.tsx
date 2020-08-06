@@ -52,10 +52,7 @@ const data = fetch(
 
     const colNames = rows[1].map((r) => r);
 
-    console.log(colNames);
-    console.log(rows[2]);
-
-    const rowItems: {}[] = [];
+    const allRowItems: {}[] = [];
 
     Object.keys(rows)
       .filter((rno) => rno !== "1")
@@ -68,20 +65,20 @@ const data = fetch(
           rowItem[colName] = parseColValue(colName, rowCell.v);
         });
 
-        rowItems.push(rowItem);
+        allRowItems.push(rowItem);
       });
 
+    const rowItems = allRowItems.filter(
+      (i) =>
+        i["y_coordinates"] &&
+        i["x_coordinates"] &&
+        i["foundation_earliest"] &&
+        i["dissolution_latest"]
+    );
+
     globals.dates = [
-      Math.min(
-        ...rowItems
-          .filter((r) => r["foundation_earliest"])
-          .map((row) => row["foundation_earliest"])
-      ),
-      Math.max(
-        ...rowItems
-          .filter((r) => r["dissolution_latest"])
-          .map((row) => row["dissolution_latest"])
-      ),
+      Math.min(...rowItems.map((row) => row["foundation_earliest"])),
+      Math.max(...rowItems.map((row) => row["dissolution_latest"])),
     ];
 
     console.log(globals);
