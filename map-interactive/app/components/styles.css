@@ -81,6 +81,24 @@ button.success {
       @apply w-full;
       @apply h-full;
       @apply z-10;
+
+      .marker-icon {
+        .icon {
+          text-shadow: 0 0 2px black, 0 0 2px black, 0 0 2px black,
+            0 0 2px black, 0 0 2px black, 0 0 2px black, 0 0 2px black,
+            0 0 2px black;
+          font-size: 1.6em;
+        }
+        .gender-m {
+          color: blue;
+        }
+        .gender-f {
+          color: red;
+        }
+        .gender-d {
+          color: orange;
+        }
+      }
     }
     .info {
       @apply absolute;

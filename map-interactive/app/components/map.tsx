@@ -1,6 +1,6 @@
 import React, { useRef, useEffect } from "react";
-import * as L from "leaflet";
 import { observer } from "mobx-react";
+import L, { divIcon } from "leaflet";
 
 import {
   Map,
@@ -17,11 +17,22 @@ type Props = {
   handleMapMoved: Function;
 };
 
-const icon = L.icon({
-  iconUrl: "https://unpkg.com/leaflet@1.5.1/dist/images/marker-icon.png",
-  iconSize: [25, 40],
-  iconAnchor: [12, 40],
-});
+const iconSize = [12, 12];
+const createIcon = (item) => {
+  let iconShape = "⏹";
+  if (item["status_or_type"] === "abbey") {
+    iconShape = "⏺";
+  } else if (item["status_or_type"] === "priory") {
+    iconShape = "▲";
+  }
+
+  return divIcon({
+    html: `<span class="icon gender-${item.gender}">${iconShape}</span>`,
+    className: "marker-icon",
+    iconAnchor: [iconSize[0] / 2, iconSize[1]],
+    iconSize: iconSize,
+  });
+};
 
 export const MapComponent: React.FC<Props> = observer(
   ({ data, center, zoom, handleMapMoved }) => {
@@ -76,7 +87,7 @@ export const MapComponent: React.FC<Props> = observer(
                 <Marker
                   key={ii}
                   position={[item.y_coordinates, item.x_coordinates]}
-                  icon={icon}
+                  icon={createIcon(item)}
                 />
               );
             })}
