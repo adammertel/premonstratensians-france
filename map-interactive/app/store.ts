@@ -5,12 +5,111 @@ export default class AppStore {
   _zoom;
   _extent;
   _data;
+  _filters;
 
   constructor(data) {
     this._center = observable.box([48, 2]);
     this._zoom = observable.box(6);
     this._extent = observable.box([]);
     this._data = data;
+
+    this._filters = observable.box([
+      {
+        label: "Gender",
+        type: "options",
+        options: [
+          {
+            label: "male",
+            value: "m",
+            active: true,
+          },
+          {
+            label: "female",
+            value: "f",
+            active: true,
+          },
+          {
+            label: "double",
+            value: "d",
+            active: true,
+          },
+        ],
+        fn: (item, options) => {
+          if (options.every((o) => o.active)) {
+            return true;
+          } else if (options.every((o) => !o.active)) {
+            return false;
+          } else {
+            const itemGender = item.gender;
+            const thisOption = options.find((o) => o.value === itemGender);
+
+            if (thisOption) {
+              return thisOption.active;
+            } else {
+              return false;
+            }
+          }
+        },
+      },
+      {
+        label: "Status",
+        type: "options",
+        options: [
+          {
+            label: "priory",
+            value: "priory",
+            active: true,
+          },
+          {
+            label: "abbey",
+            value: "abbey",
+            active: true,
+          },
+          {
+            label: "others",
+            value: "others",
+            active: true,
+          },
+        ],
+        fn: (item, options) => {
+          if (options.every((o) => o.active)) {
+            return true;
+          } else if (options.every((o) => !o.active)) {
+            return false;
+          } else {
+            const itemStatus = item.status_or_type;
+
+            if (itemStatus == "abbey") {
+              return options.find((o) => o.value === "abbey").active;
+            } else if (itemStatus == "priory") {
+              return options.find((o) => o.value === "priory").active;
+            } else {
+              return options.find((o) => o.value === "others").active;
+            }
+          }
+        },
+      },
+      {
+        label: "Time",
+        type: "time",
+        fn: (item, options) => {
+          if (options.every((o) => o.active)) {
+            return true;
+          } else if (options.every((o) => !o.active)) {
+            return false;
+          } else {
+            const itemGender = item.gender;
+            const thisOption = options.find((o) => o.value === itemGender);
+
+            if (thisOption) {
+              return thisOption.active;
+            } else {
+              return false;
+            }
+          }
+        },
+      },
+    ]);
   }
 
   @computed
@@ -21,6 +120,11 @@ export default class AppStore {
   @computed
   get center(): Array<Number> {
     return toJS(this._center);
+  }
+
+  @computed
+  get filters() {
+    return toJS(this._filters);
   }
 
   @computed
