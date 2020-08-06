@@ -138,6 +138,26 @@ export default class AppStore {
   }
 
   @action
+  toggleFilterOption(groupLabel, optionLabel) {
+    console.log("toggling", groupLabel, optionLabel);
+    const newFilters = toJS(this.filters);
+
+    const filterGroupToToggle = newFilters.find(
+      (filterGroup) => filterGroup.label === groupLabel
+    );
+    if (filterGroupToToggle && filterGroupToToggle.options) {
+      const filterOptionToToggle = filterGroupToToggle.options.find(
+        (groupOption) => groupOption.label === optionLabel
+      );
+
+      if (filterOptionToToggle) {
+        filterOptionToToggle.active = !filterOptionToToggle.active;
+      }
+    }
+    this._filters.set(newFilters);
+  }
+
+  @action
   mapMoved(
     newCenter: Array<Number>,
     newZoom: Number,
