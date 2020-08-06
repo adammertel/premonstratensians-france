@@ -14,6 +14,7 @@ export const App: React.FC<Props> = observer(({ store }) => {
         handleMapMoved={store.mapMoved.bind(store)}
         center={store.center}
         zoom={store.zoom}
+        data={store.mapData}
       />
       <Panel />
     </div>

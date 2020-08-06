@@ -4,11 +4,18 @@ export default class AppStore {
   _center;
   _zoom;
   _extent;
+  _data;
 
   constructor(data) {
-    this._center = observable.box([48.93, 18.15]);
+    this._center = observable.box([48, 2]);
     this._zoom = observable.box(6);
     this._extent = observable.box([]);
+    this._data = data;
+  }
+
+  @computed
+  get mapData(): { y_coordinates; x_coordinates }[] {
+    return this._data.filter((i) => i.y_coordinates && i.x_coordinates);
   }
 
   @computed

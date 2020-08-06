@@ -12,6 +12,7 @@ import {
 } from "react-leaflet";
 
 type Props = {
+  data: { y_coordinates; x_coordinates }[];
   center: Array<Number>;
   zoom: Number;
   handleMapMoved: Function;
@@ -24,7 +25,7 @@ const icon = L.icon({
 });
 
 export const MapComponent: React.FC<Props> = observer(
-  ({ center, zoom, handleMapMoved }) => {
+  ({ data, center, zoom, handleMapMoved }) => {
     const mapRef = useRef<any | null>(null);
     let mapEl: L.Map | false = false;
 
@@ -71,7 +72,15 @@ export const MapComponent: React.FC<Props> = observer(
             </LayersControl.BaseLayer>
           </LayersControl>
           <LayerGroup>
-            <Marker position={[48.93, 18.15]} icon={icon} />
+            {data.map((item, ii) => {
+              return (
+                <Marker
+                  key={ii}
+                  position={[item.y_coordinates, item.x_coordinates]}
+                  icon={icon}
+                />
+              );
+            })}
           </LayerGroup>
         </Map>
       </div>
