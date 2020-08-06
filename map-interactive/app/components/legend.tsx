@@ -11,42 +11,28 @@ type LegendProps = {
   store;
 };
 
-const renderCheckbox = (checked, clickEvt, groupLabel, optionLabel) => {
+const renderCheckbox = (checked, clickEvt, groupLabel, optionLabel, icon) => {
   return (
     <li
       key={optionLabel}
-      className="md:items-center checkbox"
+      className="md:items-center checkbox block table-row cursor-pointer"
       onClick={() => clickEvt(groupLabel, optionLabel)}
     >
-      <label className="block text-black font-bold">
-        {checked ? (
-          <>
-            <i
-              id={optionLabel}
-              className="icon icon-check mr-2 mt-2 text-muni"
-            />
-            <span
-              id={optionLabel}
-              className="text-sm align-text-top tb-2 font-normal text-muni"
-            >
-              {optionLabel}
-            </span>
-          </>
-        ) : (
-          <>
-            <i
-              id={optionLabel}
-              className={"icon mr-2 mt-2 text-black icon-square "}
-            />
-            <span
-              id={optionLabel}
-              className="text-sm align-text-top tb-2 font-normal"
-            >
-              {optionLabel}
-            </span>
-          </>
-        )}
-      </label>
+      <i
+        id={optionLabel}
+        className={`icon mr-4 mt-2 table-cell ${
+          checked ? "text-muni icon-check" : "text-black icon-square"
+        }`}
+      />
+      <span
+        id={optionLabel}
+        className="text-sm align-text-top tb-2 font-normal"
+      >
+        {optionLabel}
+      </span>
+      <div className="marker-icon inline-flex text-lg align-center px-2 table-cell">
+        <span className={`icon ${icon.class}`}>{icon.shape}</span>
+      </div>
     </li>
   );
 };
@@ -65,7 +51,7 @@ export const Legend: React.FC<LegendProps> = observer(({ store }) => {
           >
             <b>{filter.label}</b>
 
-            <ul>
+            <ul className="block">
               {filter.type === "options" &&
                 filter.options.map((option) => {
                   return renderCheckbox(
@@ -74,7 +60,8 @@ export const Legend: React.FC<LegendProps> = observer(({ store }) => {
                       store.toggleFilterOption(groupLabel, optionLabel);
                     },
                     filter.label,
-                    option.label
+                    option.label,
+                    option.icon
                   );
                 })}
               {filter.type === "time" && (

@@ -23,16 +23,28 @@ export default class AppStore {
             label: "male",
             value: "m",
             active: true,
+            icon: {
+              class: "gender-m",
+              shape: "⏹",
+            },
           },
           {
             label: "female",
             value: "f",
             active: true,
+            icon: {
+              class: "gender-f",
+              shape: "⏹",
+            },
           },
           {
             label: "double",
             value: "d",
             active: true,
+            icon: {
+              class: "gender-d",
+              shape: "⏹",
+            },
           },
         ],
         filterFn: (item, filterGroup) => {
@@ -61,16 +73,28 @@ export default class AppStore {
             label: "priory",
             value: "priory",
             active: true,
+            icon: {
+              class: "gender-n",
+              shape: "▲",
+            },
           },
           {
             label: "abbey",
             value: "abbey",
             active: true,
+            icon: {
+              class: "gender-n",
+              shape: "⏺",
+            },
           },
           {
             label: "others",
             value: "others",
             active: true,
+            icon: {
+              class: "gender-n",
+              shape: "⏹",
+            },
           },
         ],
         filterFn: (item, filterGroup) => {

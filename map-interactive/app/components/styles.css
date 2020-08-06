@@ -100,6 +100,28 @@ button.success {
       @apply mb-4;
     }
   }
+
+  .gender-m {
+    @apply text-male;
+  }
+  .gender-f {
+    @apply text-female;
+  }
+  .gender-d {
+    @apply text-double;
+  }
+  .gender-n {
+    @apply text-gray-500;
+  }
+  .marker-icon {
+    .icon {
+      text-shadow: 0 0 2px black, 0 0 2px black, 0 0 2px black, 0 0 2px black,
+        0 0 2px black, 0 0 2px black, 0 0 2px black, 0 0 2px black,
+        0 0 2px black, 0 0 2px black, 0 0 2px black, 0 0 2px black,
+        0 0 2px black, 0 0 2px black, 0 0 2px black;
+    }
+  }
+
   .map {
     @apply z-0;
     @apply absolute;
@@ -110,24 +132,6 @@ button.success {
       @apply w-full;
       @apply h-full;
       @apply z-10;
-
-      .marker-icon {
-        .icon {
-          text-shadow: 0 0 2px black, 0 0 2px black, 0 0 2px black,
-            0 0 2px black, 0 0 2px black, 0 0 2px black, 0 0 2px black,
-            0 0 2px black, 0 0 2px black, 0 0 2px black, 0 0 2px black,
-            0 0 2px black, 0 0 2px black, 0 0 2px black, 0 0 2px black;
-        }
-        .gender-m {
-          @apply text-male;
-        }
-        .gender-f {
-          @apply text-female;
-        }
-        .gender-d {
-          @apply text-double;
-        }
-      }
 
       .marker-cluster {
         div.outer {
