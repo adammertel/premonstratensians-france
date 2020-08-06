@@ -16,7 +16,7 @@ export const App: React.FC<Props> = observer(({ store }) => {
         zoom={store.zoom}
         data={store.mapData}
       />
-      <Panel />
+      <Panel store={store} />
     </div>
   );
 });
