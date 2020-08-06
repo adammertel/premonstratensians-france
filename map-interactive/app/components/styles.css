@@ -47,6 +47,35 @@ button.success {
   @apply right-0;
   @apply left-0;
   .panel {
+    .legend {
+      @apply p-4;
+      .filter-group {
+        @apply mt-4;
+        .checkbox {
+          i {
+            @apply font-bold;
+          }
+        }
+      }
+      .rc-slider {
+        @apply my-4;
+        @apply mx-2;
+
+        .rc-slider-track {
+          @apply bg-muni;
+        }
+        .rc-slider-handle {
+          @apply bg-muni;
+          @apply border-black;
+        }
+        .rc-slider-handle:hover {
+          @apply bg-muni;
+        }
+        .rc-slider-rail {
+          @apply bg-black;
+        }
+      }
+    }
     .dissinet-logo {
       svg {
         fill: theme("colors.muni");

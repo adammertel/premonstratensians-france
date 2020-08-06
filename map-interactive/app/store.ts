@@ -117,7 +117,7 @@ export default class AppStore {
   }
 
   @computed
-  get mapData(): { y_coordinates; x_coordinates }[] {
+  get activeData(): { y_coordinates; x_coordinates }[] {
     const dataFilters = this.filters;
     return this._data
       .filter((i) => i.y_coordinates && i.x_coordinates)
@@ -170,7 +170,6 @@ export default class AppStore {
 
   @action
   changeTimeValue(newDateValue: number[]): void {
-    console.log("changing time", newDateValue);
     const newFilters = toJS(this.filters);
     newFilters.find((fg) => fg.label === "Time").value = newDateValue;
     this._filters.set(newFilters);

@@ -15,6 +15,9 @@ export const Panel: React.FC<PanelProps> = ({ store }) => {
       <div className="panel-content px-4">
         <Legend store={store} />
       </div>
+      <div className="counter italic px-8">
+        displaying {store.activeData.length} / {store.data.length} monasteries
+      </div>
       <Footer />
     </div>
   );

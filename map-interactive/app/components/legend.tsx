@@ -15,29 +15,37 @@ const renderCheckbox = (checked, clickEvt, groupLabel, optionLabel) => {
   return (
     <li
       key={optionLabel}
-      className="md:items-center "
+      className="md:items-center checkbox"
       onClick={() => clickEvt(groupLabel, optionLabel)}
     >
       <label className="block text-black font-bold">
-        <span>
-          {checked ? (
+        {checked ? (
+          <>
             <i
               id={optionLabel}
               className="icon icon-check mr-2 mt-2 text-muni"
             />
-          ) : (
+            <span
+              id={optionLabel}
+              className="text-sm align-text-top tb-2 font-normal text-muni"
+            >
+              {optionLabel}
+            </span>
+          </>
+        ) : (
+          <>
             <i
               id={optionLabel}
-              className={"icon mr-2 mt-2 text-black icon-square"}
+              className={"icon mr-2 mt-2 text-black icon-square "}
             />
-          )}
-        </span>
-        <span
-          id={optionLabel}
-          className="text-sm align-text-top tb-2 font-normal"
-        >
-          {optionLabel}
-        </span>
+            <span
+              id={optionLabel}
+              className="text-sm align-text-top tb-2 font-normal"
+            >
+              {optionLabel}
+            </span>
+          </>
+        )}
       </label>
     </li>
   );
