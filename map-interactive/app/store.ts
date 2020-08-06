@@ -1,4 +1,5 @@
 import { keys, toJS, observable, action, computed } from "mobx";
+import { globals } from "./index";
 
 export default class AppStore {
   _center;
@@ -34,7 +35,8 @@ export default class AppStore {
             active: true,
           },
         ],
-        filterFn: (item, options) => {
+        filterFn: (item, filterGroup) => {
+          const options = filterGroup.options;
           if (options.every((o) => o.active)) {
             return true;
           } else if (options.every((o) => !o.active)) {
@@ -71,7 +73,8 @@ export default class AppStore {
             active: true,
           },
         ],
-        filterFn: (item, options) => {
+        filterFn: (item, filterGroup) => {
+          const options = filterGroup.options;
           if (options.every((o) => o.active)) {
             return true;
           } else if (options.every((o) => !o.active)) {
@@ -92,11 +95,25 @@ export default class AppStore {
       {
         label: "Time",
         type: "time",
-        filterFn: (item, options) => {
-          return true;
+        value: globals.dates,
+        filterFn: (item, filterGroup) => {
+          const from = filterGroup.value[0];
+          const to = filterGroup.value[1];
+
+          return (
+            item["foundation_earliest"] &&
+            item["dissolution_latest"] &&
+            item["foundation_earliest"] < to &&
+            item["dissolution_latest"] > from
+          );
         },
       },
     ]);
+  }
+
+  @computed
+  get data() {
+    return toJS(this._data);
   }
 
   @computed
@@ -106,7 +123,7 @@ export default class AppStore {
       .filter((i) => i.y_coordinates && i.x_coordinates)
       .filter((item) => {
         return dataFilters.every((filterGroup) =>
-          filterGroup.filterFn(item, filterGroup.options)
+          filterGroup.filterFn(item, filterGroup)
         );
       });
   }
@@ -148,6 +165,14 @@ export default class AppStore {
         filterOptionToToggle.active = !filterOptionToToggle.active;
       }
     }
+    this._filters.set(newFilters);
+  }
+
+  @action
+  changeTimeValue(newDateValue: number[]): void {
+    console.log("changing time", newDateValue);
+    const newFilters = toJS(this.filters);
+    newFilters.find((fg) => fg.label === "Time").value = newDateValue;
     this._filters.set(newFilters);
   }
 

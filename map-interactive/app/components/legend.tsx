@@ -45,6 +45,8 @@ const renderCheckbox = (checked, clickEvt, groupLabel, optionLabel) => {
 
 export const Legend: React.FC<LegendProps> = observer(({ store }) => {
   const filters = store.filters;
+
+  const [filterDates, setFilterDates] = React.useState(globals.dates);
   return (
     <div className="legend">
       {filters.map((filter) => {
@@ -69,10 +71,14 @@ export const Legend: React.FC<LegendProps> = observer(({ store }) => {
                 })}
               {filter.type === "time" && (
                 <div>
+                  <label>{filterDates.join("—")}</label>
                   <>
                     <Range
                       min={globals.dates[0]}
                       max={globals.dates[1]}
+                      value={filterDates}
+                      onChange={setFilterDates}
+                      onAfterChange={store.changeTimeValue.bind(store)}
                       defaultValue={globals.dates}
                       allowCross={false}
                     />

@@ -6,9 +6,10 @@ import * as ReactDOM from "react-dom";
 import { App } from "./components/app";
 import Store from "./store";
 
-var globals: { version; store } = {
+var globals: { version; store; dates } = {
   version: process.env.npm_package_version,
   store: false,
+  dates: [],
 };
 
 const parsingColsRules = {
@@ -69,6 +70,20 @@ const data = fetch(
         rowItems.push(rowItem);
       });
 
+    globals.dates = [
+      Math.min(
+        ...rowItems
+          .filter((r) => r["foundation_earliest"])
+          .map((row) => row["foundation_earliest"])
+      ),
+      Math.max(
+        ...rowItems
+          .filter((r) => r["dissolution_latest"])
+          .map((row) => row["dissolution_latest"])
+      ),
+    ];
+
+    console.log(globals);
     globals.store = new Store(rowItems);
 
     ReactDOM.render(

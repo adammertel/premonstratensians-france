@@ -1,7 +1,6 @@
 import React, { useRef, useEffect } from "react";
 import * as L from "leaflet";
 import { observer } from "mobx-react";
-import { classnames } from "tailwindcss-classnames";
 
 import {
   Map,
