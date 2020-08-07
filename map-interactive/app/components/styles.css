@@ -122,6 +122,38 @@ button.success {
     }
   }
 
+  .welcome {
+    @apply z-20;
+    @apply absolute;
+    @apply inset-y-0;
+    @apply inset-x-0;
+
+    .background {
+      @apply z-10;
+      @apply w-full;
+      @apply h-full;
+      @apply absolute;
+      @apply bg-black;
+      opacity: 0.9;
+    }
+    .content {
+      @apply absolute;
+      @apply z-20;
+      @apply bg-white;
+      margin-left: 15%;
+      margin-top: 5%;
+      max-width: 70%;
+      overflow-y: auto;
+      overflow-x: hidden;
+      max-height: 90%;
+
+      p.small {
+        font-size: 90%;
+        margin-top: 1rem;
+      }
+    }
+  }
+
   .map {
     @apply z-0;
     @apply absolute;

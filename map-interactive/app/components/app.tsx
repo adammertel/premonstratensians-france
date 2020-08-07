@@ -1,6 +1,7 @@
 import * as React from "react";
 import { MapComponent } from "./map";
 import { Panel } from "./panel";
+import { Welcome } from "./welcome";
 import { observer } from "mobx-react";
 
 type Props = {
@@ -10,6 +11,7 @@ type Props = {
 export const App: React.FC<Props> = observer(({ store }) => {
   return (
     <div>
+      <Welcome store={store} />
       <MapComponent
         handleMapMoved={store.mapMoved.bind(store)}
         center={store.center}

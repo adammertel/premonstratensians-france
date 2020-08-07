@@ -37,7 +37,7 @@ export const Footer: React.FC<FooterProps> = ({}) => {
           info
         </button>
         <a
-          href="https://docs.google.com/spreadsheets/d/1yYLd2ARWbyPxH9m3ZD7mYnVJS0UArv_pTav5nP1T2NE/edit?usp=sharing"
+          href="https://docs.google.com/spreadsheets/d/1ox_Uv9xYMullKudXLFnoOgiU52QO7Sl1Dk6G6F7gg5Y/edit?usp=sharing"
           target="_blank"
         >
           <button className="text-base primary">
