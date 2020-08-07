@@ -11,6 +11,7 @@ import {
   TileLayer,
   LayersControl,
   LayerGroup,
+  Tooltip,
 } from "react-leaflet";
 
 type Props = {
@@ -37,6 +38,18 @@ const createIcon = (item) => {
   });
 };
 
+const createTooltip = (item) => {
+  return (
+    <div key={item.id}>
+      [{item.id}] <b className="name">{item.name}</b>
+      <br />
+      <i className="icon icon-clock"></i>{" "}
+      {`${item.foundation_earliest}/${item.foundation_latest} – ${item.dissolution_earliest}/${item.dissolution_latest}`}
+      <br />
+    </div>
+  );
+};
+
 export const MapComponent: React.FC<Props> = observer(
   ({ data, center, zoom, handleMapMoved }) => {
     const mapRef = useRef<any | null>(null);
@@ -60,7 +73,6 @@ export const MapComponent: React.FC<Props> = observer(
 
     return (
       <div className="map" data-testid="map-wrapper">
-        <div className="info">{center && center.join("-")}</div>
         <Map
           center={center}
           zoom={zoom}
@@ -114,7 +126,13 @@ export const MapComponent: React.FC<Props> = observer(
                     key={ii}
                     position={[item.y_coordinates, item.x_coordinates]}
                     icon={createIcon(item)}
-                  />
+                  >
+                    <Tooltip direction="right">
+                      <div className="tooltip-content">
+                        {createTooltip(item)}
+                      </div>
+                    </Tooltip>
+                  </Marker>
                 );
               })}
             </MarkerClusterGroup>

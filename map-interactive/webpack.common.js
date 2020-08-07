@@ -53,6 +53,14 @@ module.exports = {
           },
         ],
       },
+      {
+        test: /favicon\.ico$/,
+        loader: "url",
+        query: {
+          limit: 1,
+          name: "[name].[ext]",
+        },
+      },
     ],
   },
   resolve: {
@@ -61,7 +69,7 @@ module.exports = {
   },
   plugins: [
     new CleanWebpackPlugin(),
-    new FaviconsWebpackPlugin("./public/favicon.ico"),
+    new FaviconsWebpackPlugin("./public/favicon.png"),
     new HtmlWebpackPlugin({
       template: "./public/index.html",
     }),

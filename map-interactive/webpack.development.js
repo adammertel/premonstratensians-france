@@ -7,7 +7,7 @@ module.exports = merge.merge(common, {
   devtool: "inline-source-map",
   devServer: {
     hot: true,
-    contentBase: "./dist",
+    contentBase: "./build",
   },
   plugins: [
     new dotenv({
