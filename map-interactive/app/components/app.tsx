@@ -11,7 +11,7 @@ type Props = {
 export const App: React.FC<Props> = observer(({ store }) => {
   return (
     <div>
-      <Welcome store={store} />
+      {store.openWelcome && <Welcome store={store} />}
       <MapComponent
         handleMapMoved={store.mapMoved.bind(store)}
         center={store.center}

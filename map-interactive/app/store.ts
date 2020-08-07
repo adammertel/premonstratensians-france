@@ -7,11 +7,13 @@ export default class AppStore {
   _extent;
   _data;
   _filters;
+  _openWelcome;
 
   constructor(data) {
     this._center = observable.box([48, 2]);
     this._zoom = observable.box(7);
     this._extent = observable.box([]);
+    this._openWelcome = observable.box(true);
     this._data = data;
 
     this._filters = observable.box([
@@ -136,6 +138,11 @@ export default class AppStore {
   }
 
   @computed
+  get openWelcome() {
+    return toJS(this._openWelcome);
+  }
+
+  @computed
   get data() {
     return toJS(this._data);
   }
@@ -172,6 +179,12 @@ export default class AppStore {
   @computed
   get extent(): Array<number> {
     return toJS(this._extent);
+  }
+
+  @action
+  toggleWelcome() {
+    console.log("toggle welcome");
+    this._openWelcome.set(!this.openWelcome);
   }
 
   @action

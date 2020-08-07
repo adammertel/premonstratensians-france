@@ -2,9 +2,11 @@ import * as React from "react";
 
 import { globals } from "../index";
 
-type FooterProps = {};
+type FooterProps = {
+  store;
+};
 
-export const Footer: React.FC<FooterProps> = ({}) => {
+export const Footer: React.FC<FooterProps> = ({ store }) => {
   return (
     <div className="legend bg-gray-400 bottom-0 absolute w-full inline-flex">
       <div>
@@ -30,7 +32,7 @@ export const Footer: React.FC<FooterProps> = ({}) => {
         <button
           className="text-base primary"
           onClick={() => {
-            //  this.handleOpenWelcome.bind(this)
+            store.toggleWelcome();
           }}
         >
           <i className="mr-2 icon icon-info" />

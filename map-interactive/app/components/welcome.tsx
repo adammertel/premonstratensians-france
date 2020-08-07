@@ -22,7 +22,9 @@ export const Welcome: React.FC<WelcomeProps> = ({ store }) => {
         <Hero />
         <button
           className="text-base text-black text-2xl absolute top-0 right-0 bg-transparent"
-          onClick={() => {}}
+          onClick={() => {
+            store.toggleWelcome();
+          }}
         >
           x
         </button>
@@ -163,7 +165,12 @@ export const Welcome: React.FC<WelcomeProps> = ({ store }) => {
           </div>
         </div>
       </div>
-      <div className="background" onClick={() => {}} />
+      <div
+        className="background"
+        onClick={() => {
+          store.toggleWelcome();
+        }}
+      />
     </div>
   );
 };

@@ -18,7 +18,7 @@ export const Panel: React.FC<PanelProps> = ({ store }) => {
       <div className="counter italic px-8">
         displaying {store.activeData.length} / {store.data.length} monasteries
       </div>
-      <Footer />
+      <Footer store={store} />
     </div>
   );
 };
