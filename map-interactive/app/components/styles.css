@@ -47,6 +47,12 @@ button.success {
   @apply right-0;
   @apply left-0;
   .panel {
+    width: var(--panel-w);
+    @apply absolute;
+    @apply bg-white;
+    @apply z-10;
+    @apply inset-y-0;
+    @apply right-0;
     .legend {
       @apply p-4;
       .filter-group {
@@ -87,12 +93,6 @@ button.success {
     .subheading {
       font-size: 0.9rem;
     }
-    width: var(--panel-w);
-    @apply absolute;
-    @apply bg-white;
-    @apply z-10;
-    @apply inset-y-0;
-    @apply left-0;
     .content {
       @apply p-4;
     }
@@ -158,7 +158,7 @@ button.success {
     @apply z-0;
     @apply absolute;
     @apply inset-y-0;
-    @apply right-0;
+    @apply left-0;
     width: calc(100% - var(--panel-w));
     .leaflet-container {
       @apply w-full;
