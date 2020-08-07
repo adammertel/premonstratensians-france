@@ -80,7 +80,7 @@ export const Welcome: React.FC<WelcomeProps> = ({ store }) => {
                   Data source:{" "}
                   <a
                     href="https://www.zotero.org/groups/446972/dissident_networks_project/items/TSQEKMGD/"
-                    className="link"
+                    className="link text-muni"
                     target="_blank"
                   >
                     Ardura, 1993
@@ -105,6 +105,7 @@ export const Welcome: React.FC<WelcomeProps> = ({ store }) => {
                   <a
                     title="personal github page"
                     target="_blank"
+                    className="link text-muni"
                     href="https://github.com/adammertel"
                   >
                     Adam Mertel
@@ -121,19 +122,26 @@ export const Welcome: React.FC<WelcomeProps> = ({ store }) => {
               monasteries in France: interactive map (version {globals.version}
               ). Dissident Networks Project (DISSINET). Retrieved{" "}
               {now.toLocaleDateString("en-US", dateOptions)}, from{" "}
-              <a href="https://dissinet.cz/maps/premonstratensiansfrance">
+              <a
+                className="text-muni link"
+                href="https://dissinet.cz/maps/premonstratensiansfrance"
+              >
                 https://dissinet.cz/maps/premonstratensiansfrance
               </a>
               .
             </p>
           </div>
         </div>
-        <div className="footer w-100 bg-grey p-4 table-row">
+        <div className="footer w-100 bg-gray-400 p-4 table-row">
           <div className="table-cell p-4 w-2/3 align-top paragraph small text-sm mr-32">
             <i>
               <p>
                 This map and digital dataset is a part of the{" "}
-                <a href="https://dissinet.cz/" className="link" target="_blank">
+                <a
+                  href="https://dissinet.cz/"
+                  className="link text-muni"
+                  target="_blank"
+                >
                   Dissident Networks Project (DISSINET)
                 </a>
                 . The project received funding from the Czech Science Foundation
@@ -144,12 +152,12 @@ export const Welcome: React.FC<WelcomeProps> = ({ store }) => {
               </p>
             </i>
           </div>
-          <div className="table-cell align-bottom text-right">
-            <a className="" target="_blank" href="https://dissinet.cz">
+          <div className="table-cell align-middle text-right">
+            <a className="text-muni" target="_blank" href="https://dissinet.cz">
               <svg
                 className=""
-                width="178"
-                height="68"
+                width="356"
+                height="136"
                 viewBox="0 0 178 68"
                 fill="black"
                 transform="scale(0.5 0.5)"
