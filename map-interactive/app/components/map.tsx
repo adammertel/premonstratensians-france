@@ -12,10 +12,11 @@ import {
   LayersControl,
   LayerGroup,
   Tooltip,
+  Popup,
 } from "react-leaflet";
 
 type Props = {
-  data: { y_coordinates; x_coordinates }[];
+  data: { id; y_coordinates; x_coordinates }[];
   center: Array<Number>;
   zoom: Number;
   handleMapMoved: Function;
@@ -40,12 +41,50 @@ const createIcon = (item) => {
 
 const createTooltip = (item) => {
   return (
-    <div key={item.id}>
-      [{item.id}] <b className="name">{item.name}</b>
-      <br />
-      <i className="icon icon-clock"></i>{" "}
-      {`${item.foundation_earliest}/${item.foundation_latest} – ${item.dissolution_earliest}/${item.dissolution_latest}`}
-      <br />
+    <div key={item.id} className="tooltip">
+      <div key="id" className="tooltip-heading">
+        [{item.id}] <b className="name">{item.name}</b>
+        <i> ({item.localisation_precision})</i>
+      </div>
+      <div key="time" className="tooltip-line">
+        <i className="icon icon-clock"></i>
+        <span className="text">
+          {`${item.foundation_earliest}/${item.foundation_latest} – ${item.dissolution_earliest}/${item.dissolution_latest}`}
+        </span>
+      </div>
+      <div key="place" className="tooltip-line">
+        <i className="icon icon-location"></i>
+        <span className="text">{`departement ${item.departement}`}</span>
+      </div>
+      <div key="dedication" className="tooltip-line">
+        <i className="icon icon-place-of-worship"></i>
+        <span className="text">
+          {`patrocinium ${
+            item.patrocinium ? item.patrocinium.split("#").join(", ") : ""
+          }`}
+        </span>
+      </div>
+      {(item.wiki_en_reference || item.wiki_fr_reference) && (
+        <div key="links" className="tooltip-line">
+          <i className="icon icon-wikipedia-w"></i>
+          <span className="text">
+            {item.wiki_en_reference && (
+              <span className="text-part">
+                <a target="_blank" href={item.wiki_en_reference}>
+                  en
+                </a>
+              </span>
+            )}
+            {item.wiki_fr_reference && (
+              <span className="text-part">
+                <a target="_blank" href={item.wiki_fr_reference}>
+                  fr
+                </a>
+              </span>
+            )}
+          </span>
+        </div>
+      )}
     </div>
   );
 };
@@ -127,11 +166,11 @@ export const MapComponent: React.FC<Props> = observer(
                     position={[item.y_coordinates, item.x_coordinates]}
                     icon={createIcon(item)}
                   >
-                    <Tooltip direction="right">
+                    <Popup>
                       <div className="tooltip-content">
                         {createTooltip(item)}
                       </div>
-                    </Tooltip>
+                    </Popup>
                   </Marker>
                 );
               })}
