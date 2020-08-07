@@ -133,10 +133,18 @@ button.success {
       @apply h-full;
       @apply z-10;
 
+      .leaflet-tile-container {
+        filter: sepia(0.2) grayscale(0.5);
+      }
+
+      .leaflet-control-layers-toggle {
+        background-image: url("https://unpkg.com/leaflet@1.6.0/dist/images/layers.png");
+      }
+
       .tooltip {
         .tooltip-heading {
           text-decoration: underline;
-          font-size: 12px;
+          font-size: 14px;
           @apply mb-1;
         }
         .tooltip-line {

@@ -11,8 +11,8 @@ import {
   TileLayer,
   LayersControl,
   LayerGroup,
-  Tooltip,
   Popup,
+  ScaleControl,
 } from "react-leaflet";
 
 type Props = {
@@ -120,22 +120,48 @@ export const MapComponent: React.FC<Props> = observer(
           maxZoom={11}
           minZoom={6}
         >
-          <LayersControl position="topright">
+          <ScaleControl />
+          <LayersControl position="bottomright">
             <LayersControl.BaseLayer
-              name="OpenStreetMap.BlackAndWhite"
+              name="Ancient World Mapping Center"
               checked={true}
             >
               <TileLayer
-                attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-                url="https://tiles.wmflabs.org/bw-mapnik/{z}/{x}/{y}.png"
+                key="awmc"
+                maxNativeZoom={15}
+                attribution="<a href='http://awmc.unc.edu/wordpress/'>Ancient World Mapping Center</a>"
+                url="http://a.tiles.mapbox.com/v3/isawnyu.map-knmctlkh/{z}/{x}/{y}.png"
               />
             </LayersControl.BaseLayer>
-            <LayersControl.BaseLayer name="OpenStreetMap.Mapnik">
+            <LayersControl.BaseLayer name="Cassini map">
               <TileLayer
-                attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-                url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                key="cassini"
+                maxNativeZoom={15}
+                attribution="<a href='chartae-antiquae.cz'>chartae-antiquae.cz</a>"
+                url="http://www.chartae-antiquae.cz/TMS/Francie/{z}/{x}/{y}.png"
               />
             </LayersControl.BaseLayer>
+            <LayersControl.BaseLayer name="Open Street Maps">
+              <TileLayer
+                attribution="&copy; <a href='https://www.openstreetmap.org/copyright'>OpenStreetMap</a> contributors"
+                url="https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png"
+              />
+            </LayersControl.BaseLayer>
+            <LayersControl.BaseLayer name="Open Topo Maps">
+              <TileLayer
+                attribution='Map data: &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, <a href="http://viewfinderpanoramas.org">SRTM</a> | Map style: &copy; <a href="https://opentopomap.org">OpenTopoMap</a> (<a href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA</a>)'
+                url="https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png"
+              />
+            </LayersControl.BaseLayer>
+            <LayersControl.Overlay name="Stamen labels" checked={true}>
+              <TileLayer
+                key="stamen"
+                attribution='Map tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                url="https://stamen-tiles-{s}.a.ssl.fastly.net/toner-labels/{z}/{x}/{y}{r}.{ext}"
+                subdomains="abcd"
+                ext="png"
+              />
+            </LayersControl.Overlay>
           </LayersControl>
           <LayerGroup>
             <MarkerClusterGroup
