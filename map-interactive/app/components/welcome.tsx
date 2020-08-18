@@ -47,7 +47,7 @@ export const Welcome: React.FC<WelcomeProps> = ({ store }) => {
             <span className="text-bold">Main features</span> of the map:
             <ul className="list-disc">
               <li className="ml-8">
-                <span className="text-bold">186 records</span> (localised either
+                <span className="text-bold">181 records</span> (localised either
                 to the precise site or, approximately, to the level of the
                 commune;
               </li>
@@ -119,7 +119,7 @@ export const Welcome: React.FC<WelcomeProps> = ({ store }) => {
             <p>
               <span className="text-bold">Recommended citation: </span>
               Mertel, A., Fabíková, J., & Zbíral, D. (2020). Premonstratensian
-              monasteries in France: interactive map (version {globals.version}
+              monasteries in France: interactive map (v. {globals.version}
               ). Dissident Networks Project (DISSINET). Retrieved{" "}
               {now.toLocaleDateString("en-US", dateOptions)}, from{" "}
               <a

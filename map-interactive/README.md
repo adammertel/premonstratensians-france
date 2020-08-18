@@ -15,8 +15,8 @@ TODO 1.0.0
 - [x] "This interactive map visualizes a dataset of Premonstratensian monasteries in France" to "This interactive map visualizes a dataset of Premonstratensian houses in France"
 - [x][status] others > other
 - [ ][time] 1284—1682: use ndash (–) instead of the long mdash (—)
-- [ ][recommended citation] version > v.
-- [ ] Landing screen: 186 records > 181 records
+- [x][recommended citation] version > v.
+- [x] Landing screen: 186 records > 181 records
 - [ ] Info box: departement > département
 - [ ] Info box: patrocinium > dedication
 - [ ] Info box: some don't have dedication (patrocinium) even if it is in the dataset, cf. Justemont, Verdun etc.
