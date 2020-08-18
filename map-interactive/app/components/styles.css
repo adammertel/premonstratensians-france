@@ -114,6 +114,8 @@ button.success {
     @apply text-gray-500;
   }
   .marker-icon {
+    text-align: center;
+
     .icon {
       text-shadow: 0 0 2px black, 0 0 2px black, 0 0 2px black, 0 0 2px black,
         0 0 2px black, 0 0 2px black, 0 0 2px black, 0 0 2px black,

@@ -29,6 +29,8 @@ const createIcon = (item) => {
     iconShape = "⏺";
   } else if (item["status_or_type"] === "priory") {
     iconShape = "▲";
+  } else if (item["status_or_type"] === "status not found") {
+    iconShape = "❓";
   }
 
   return divIcon({
