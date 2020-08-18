@@ -32,7 +32,7 @@ export const Welcome: React.FC<WelcomeProps> = ({ store }) => {
           <p>
             This interactive map visualizes a dataset of{" "}
             <span className="text-bold">
-              Premonstratensian monasteries in France
+              Premonstratensian houses in France
             </span>{" "}
             from the foundation of the order up to the present. The dataset is a
             digital adaptation and formalization of the most complete catalogue

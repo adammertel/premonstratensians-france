@@ -12,7 +12,7 @@
 TODO 1.0.0
 
 - [x] others -> others + unknown
-- [ ] "This interactive map visualizes a dataset of Premonstratensian monasteries in France" to "This interactive map visualizes a dataset of Premonstratensian houses in France"
+- [x] "This interactive map visualizes a dataset of Premonstratensian monasteries in France" to "This interactive map visualizes a dataset of Premonstratensian houses in France"
 - [x][status] others > other
 - [ ][time] 1284—1682: use ndash (–) instead of the long mdash (—)
 - [ ][recommended citation] version > v.
