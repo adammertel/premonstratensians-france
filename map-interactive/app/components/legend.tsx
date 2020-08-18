@@ -66,7 +66,7 @@ export const Legend: React.FC<LegendProps> = observer(({ store }) => {
                 })}
               {filter.type === "time" && (
                 <div>
-                  <label>{filterDates.join("—")}</label>
+                  <label>{filterDates.join("–")}</label>
                   <>
                     <Range
                       min={globals.dates[0]}
