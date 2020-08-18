@@ -99,7 +99,7 @@ export default class AppStore {
             },
           },
           {
-            label: "others",
+            label: "other",
             value: "others",
             active: true,
             icon: {

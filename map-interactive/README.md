@@ -11,9 +11,9 @@
 
 TODO 1.0.0
 
-- [ ] others -> others + unknown
+- [x] others -> others + unknown
 - [ ] "This interactive map visualizes a dataset of Premonstratensian monasteries in France" to "This interactive map visualizes a dataset of Premonstratensian houses in France"
-- [ ][status] others > other
+- [x][status] others > other
 - [ ][time] 1284—1682: use ndash (–) instead of the long mdash (—)
 - [ ][recommended citation] version > v.
 - [ ] Landing screen: 186 records > 181 records
