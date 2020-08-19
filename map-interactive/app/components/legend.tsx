@@ -2,6 +2,7 @@ import * as React from "react";
 import { observer } from "mobx-react";
 import Slider, { Range } from "rc-slider";
 import Tooltip from "rc-tooltip";
+import { classnames } from "tailwindcss-classnames";
 
 import { globals } from "./../index";
 
@@ -41,6 +42,24 @@ export const Legend: React.FC<LegendProps> = observer(({ store }) => {
   const filters = store.filters;
 
   const [filterDates, setFilterDates] = React.useState(globals.dates);
+  const [filterDateInputFrom, setFilterDateInputFrom] = React.useState(
+    globals.dates[0]
+  );
+  const [filterDateInputTo, setFilterDateInputTo] = React.useState(
+    globals.dates[1]
+  );
+
+  //
+  const [
+    filterDateInputFromValid,
+    setFilterDateInputFromValid,
+  ] = React.useState(true);
+  const [filterDateInputToValid, setFilterDateInputToValid] = React.useState(
+    true
+  );
+
+  const dateInputInvalidStyle = "p-2 w-20 bg-danger text-white";
+  const dateInputValidStyle = "p-2 w-20 text-muni";
   return (
     <div className="legend">
       {filters.map((filter) => {
@@ -66,13 +85,73 @@ export const Legend: React.FC<LegendProps> = observer(({ store }) => {
                 })}
               {filter.type === "time" && (
                 <div>
-                  <label>{filterDates.join("–")}</label>
+                  <label>
+                    <input
+                      type="number"
+                      className={
+                        filterDateInputFromValid
+                          ? dateInputValidStyle
+                          : dateInputInvalidStyle
+                      }
+                      value={filterDateInputFrom}
+                      onChange={(e) => {
+                        const newValue = e.target.value;
+                        setFilterDateInputFrom(newValue);
+
+                        if (
+                          newValue < globals.dates[1] &&
+                          newValue > globals.dates[0] &&
+                          newValue < filterDates[1]
+                        ) {
+                          setFilterDateInputFromValid(true);
+                          setFilterDates([newValue, filterDates[1]]);
+                          store.changeTimeValue([newValue, filterDates[1]]);
+                        } else {
+                          setFilterDateInputFromValid(false);
+                        }
+                      }}
+                    />
+                    {"–"}
+                    <input
+                      type="number"
+                      className={
+                        "ml-8 " +
+                        (filterDateInputToValid
+                          ? dateInputValidStyle
+                          : dateInputInvalidStyle)
+                      }
+                      value={filterDateInputTo}
+                      onChange={(e) => {
+                        const newValue = e.target.value;
+                        setFilterDateInputTo(newValue);
+
+                        if (
+                          newValue < globals.dates[1] &&
+                          newValue > globals.dates[0] &&
+                          newValue > filterDates[0]
+                        ) {
+                          setFilterDateInputToValid(true);
+                          setFilterDates([filterDates[0], newValue]);
+                          store.changeTimeValue([filterDates[0], newValue]);
+                        } else {
+                          setFilterDateInputToValid(false);
+                        }
+                      }}
+                    />
+                  </label>
                   <>
                     <Range
                       min={globals.dates[0]}
                       max={globals.dates[1]}
                       value={filterDates}
-                      onChange={setFilterDates}
+                      onChange={(newDates) => {
+                        setFilterDates(newDates);
+
+                        setFilterDateInputFrom(newDates[0]);
+                        setFilterDateInputTo(newDates[1]);
+                        setFilterDateInputFromValid(true);
+                        setFilterDateInputToValid(true);
+                      }}
                       onAfterChange={store.changeTimeValue.bind(store)}
                       defaultValue={globals.dates}
                       allowCross={false}
