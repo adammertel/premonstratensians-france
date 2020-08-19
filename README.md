@@ -9,13 +9,13 @@ Data were digitized from [Ardura, 1993](https://www.zotero.org/groups/446972/dis
 
 ## Interactive map
 
-Hosted under [DISSINET domain](https://dissinet.cz/maps/premonstratensiansfrance/), this map allows interactively filtering the dataset by time, gender of the community, a choice of base maps and query the detail of the record on marker click. The map was constructed with [react-leafltet](https://react-leaflet.js.org/) and [tailwindcss](https://tailwindcss.com/).
+Hosted under [DISSINET domain](https://dissinet.cz/maps/premonstratensiansfrance/), this map allows interactively filtering the dataset by time, the gender of the community, a choice of base maps and query the detail of the record on marker click. The map was constructed with [react-leafltet](https://react-leaflet.js.org/) and [tailwindcss](https://tailwindcss.com/).
 
 <img src="./map-interactive/screenshot.png" height="400" />
 
 ## Static map
 
-This map is an appendix of the [Bachelor's thesis of Jaroslava Fabíková](https://is.muni.cz/auth/th/luecq/?lang=en).
+This static map was created in QGIS, and it is the appendix of the [Bachelor's thesis of Jaroslava Fabíková](https://is.muni.cz/auth/th/luecq/?lang=en).
 <img src="./map-static/static-screen.png" height="400" />
 
 ## DISSINET
