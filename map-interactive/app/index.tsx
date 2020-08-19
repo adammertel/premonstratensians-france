@@ -30,12 +30,13 @@ const parseColValue = (col, val) => {
     return val;
   }
 };
-
+const notInFranceIds = [2, 106, 150, 174];
 const data = fetch(
   "https://spreadsheets.google.com/feeds/cells/1ox_Uv9xYMullKudXLFnoOgiU52QO7Sl1Dk6G6F7gg5Y/1/public/full?alt=json"
 )
   .then((response) => response.json())
   .then((data) => {
+    // parse JSON
     const cells = data.feed.entry.map((e) => e.gs$cell);
 
     const rows = {};
@@ -73,12 +74,12 @@ const data = fetch(
         i["y_coordinates"] &&
         i["x_coordinates"] &&
         i["foundation_earliest"] &&
-        i["dissolution_latest"]
+        !notInFranceIds.includes(i["id"])
     );
 
     globals.dates = [
       Math.min(...rowItems.map((row) => row["foundation_earliest"])),
-      Math.max(...rowItems.map((row) => row["dissolution_latest"])),
+      2020,
     ];
 
     console.log(globals);

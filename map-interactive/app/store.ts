@@ -139,9 +139,8 @@ export default class AppStore {
 
           return (
             item["foundation_earliest"] &&
-            item["dissolution_latest"] &&
             item["foundation_earliest"] <= to &&
-            item["dissolution_latest"] >= from
+            (!item["dissolution_latest"] || item["dissolution_latest"] >= from)
           );
         },
       },

@@ -113,7 +113,7 @@ export const Legend: React.FC<LegendProps> = observer(({ store }) => {
                         }
                       }}
                     />
-                    {"–"}
+                    {"to"}
                     <input
                       type="number"
                       className={
