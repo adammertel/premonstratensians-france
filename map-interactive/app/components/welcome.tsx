@@ -30,7 +30,7 @@ export const Welcome: React.FC<WelcomeProps> = ({ store }) => {
       <div className="content ">
         <Hero />
         <button
-          className="text-base text-black text-2xl absolute top-0 right-0 bg-transparent"
+          className="text-base text-black text-2xl absolute top-0 right-0 py-0 px-2 bg-transparent bg-transparent hover:bg-white hover:border-black hover:border-solid hover:border-2"
           onClick={() => {
             store.closeWelcome();
           }}
