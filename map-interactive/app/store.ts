@@ -194,8 +194,12 @@ export default class AppStore {
 
   @action
   toggleWelcome() {
-    console.log("toggle welcome");
     this._openWelcome.set(!this.openWelcome);
+  }
+
+  @action
+  closeWelcome() {
+    this._openWelcome.set(false);
   }
 
   @action

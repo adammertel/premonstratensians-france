@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, { useEffect } from "react";
 
 import { globals } from "./../index";
 
@@ -16,6 +16,15 @@ export const Welcome: React.FC<WelcomeProps> = ({ store }) => {
   };
   const now = new Date();
 
+  useEffect(() => {
+    console.log("did mount");
+    document.addEventListener("keydown", (e) => {
+      if (e.keyCode === 27) {
+        store.closeWelcome();
+      }
+    });
+  }, []);
+
   return (
     <div className="welcome" data-testid="welcome-wrapper">
       <div className="content ">
@@ -23,7 +32,7 @@ export const Welcome: React.FC<WelcomeProps> = ({ store }) => {
         <button
           className="text-base text-black text-2xl absolute top-0 right-0 bg-transparent"
           onClick={() => {
-            store.toggleWelcome();
+            store.closeWelcome();
           }}
         >
           x
