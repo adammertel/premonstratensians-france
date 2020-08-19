@@ -7,7 +7,7 @@ type HeroProps = {};
 export const Hero: React.FC<HeroProps> = ({}) => {
   return (
     <div
-      className="hero font-bold text-xl pt-12 pb-4 px-4 text-white bg-cover"
+      className="hero font-bold text-xl pt-12 pb-4 px-4 text-white bg-cover bg-repeat-round"
       data-testid="welcome-wrapper"
       style={{
         background: " cover",
@@ -16,10 +16,10 @@ export const Hero: React.FC<HeroProps> = ({}) => {
           )`,
       }}
     >
-      <h2 className="heading text-white font-bold">
+      <h2 className="heading text-2xl text-white font-bold">
         Premonstratensian monasteries in France
       </h2>
-      <h4 className="subheading text-white font-medium">
+      <h4 className="subheading text-lg text-white font-medium">
         (v. {globals.version})
       </h4>
     </div>

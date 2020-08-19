@@ -2,20 +2,6 @@
   --panel-w: 26em;
 }
 
-.hero {
-  background-position-x: -1px;
-  background-repeat: round;
-}
-
-.heading {
-  font-size: 2rem;
-  margin-bottom: 0.5rem;
-}
-.subheading {
-  font-size: 1.2rem;
-  margin-top: -0.5rem;
-}
-
 button {
   @apply text-white;
   @apply font-bold;
@@ -59,12 +45,12 @@ button.success {
   @apply left-0;
 
   .panel-hider {
-    width: 40px;
-    height: 40px;
-    position: fixed;
-    top: 0;
-    z-index: 20;
-    right: 0;
+    @apply w-10;
+    @apply h-10;
+    @apply fixed;
+    @apply top-0;
+    @apply z-20;
+    @apply right-0;
   }
   .panel {
     width: var(--panel-w);
@@ -115,18 +101,6 @@ button.success {
         fill: theme("colors.muni");
       }
     }
-    .heading {
-      font-size: 1.4rem;
-    }
-    .subheading {
-      font-size: 0.9rem;
-    }
-    .content {
-      @apply p-4;
-    }
-    .heading {
-      @apply mb-4;
-    }
   }
 
   .gender-m {
@@ -170,16 +144,16 @@ button.success {
       @apply absolute;
       @apply z-20;
       @apply bg-white;
+      @apply overflow-y-auto;
+      @apply overflow-x-hidden;
       margin-left: 15%;
       margin-top: 5%;
       max-width: 70%;
-      overflow-y: auto;
-      overflow-x: hidden;
       max-height: 90%;
 
       p.small {
-        font-size: 90%;
-        margin-top: 1rem;
+        @apply text-sm;
+        @apply mt-4;
       }
     }
   }

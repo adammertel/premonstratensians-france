@@ -68,14 +68,6 @@ p {
   font-family: "Muni", Arial, Helvetica Neue, sans-serif;
 }
 
-.heading {
-  font-size: 3rem;
-}
-.subheading {
-  font-size: 2rem;
-  margin-top: -0.5rem;
-}
-
 button {
   color: white;
   font-weight: bold;
