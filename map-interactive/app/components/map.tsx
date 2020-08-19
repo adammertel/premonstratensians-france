@@ -42,6 +42,14 @@ const createIcon = (item) => {
 };
 
 const createTooltip = (item) => {
+  const yearsFrom =
+    item.foundation_earliest === item.foundation_latest
+      ? item.foundation_earliest
+      : `${item.foundation_earliest}/${item.foundation_latest}`;
+  const yearsTo =
+    item.dissolution_earliest === item.dissolution_latest
+      ? item.dissolution_earliest
+      : `${item.dissolution_earliest}/${item.dissolution_latest}`;
   return (
     <div key={item.id} className="tooltip">
       <div key="id" className="tooltip-heading">
@@ -50,19 +58,17 @@ const createTooltip = (item) => {
       </div>
       <div key="time" className="tooltip-line">
         <i className="icon icon-clock"></i>
-        <span className="text">
-          {`${item.foundation_earliest}/${item.foundation_latest} – ${item.dissolution_earliest}/${item.dissolution_latest}`}
-        </span>
+        <span className="text">{`${yearsFrom}–${yearsTo}`}</span>
       </div>
       <div key="place" className="tooltip-line">
         <i className="icon icon-location"></i>
-        <span className="text">{`departement ${item.departement}`}</span>
+        <span className="text">{`département ${item.departement}`}</span>
       </div>
       <div key="dedication" className="tooltip-line">
         <i className="icon icon-place-of-worship"></i>
         <span className="text">
-          {`patrocinium ${
-            item.patrocinium ? item.patrocinium.split("#").join(", ") : ""
+          {`dedication ${
+            item.dedication ? item.dedication.split(" #").join(", ") : ""
           }`}
         </span>
       </div>
@@ -119,7 +125,7 @@ export const MapComponent: React.FC<Props> = observer(
           zoom={zoom}
           ref={mapRef}
           onViewportChanged={handleMapMove}
-          maxZoom={11}
+          maxZoom={13}
           minZoom={6}
         >
           <ScaleControl />

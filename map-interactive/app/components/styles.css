@@ -177,7 +177,6 @@ button.success {
 
       .tooltip {
         .tooltip-heading {
-          text-decoration: underline;
           font-size: 14px;
           @apply mb-1;
         }
