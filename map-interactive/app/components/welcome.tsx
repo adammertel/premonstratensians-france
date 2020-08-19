@@ -56,7 +56,7 @@ export const Welcome: React.FC<WelcomeProps> = ({ store }) => {
             <span className="text-bold">Main features</span> of the map:
             <ul className="list-disc">
               <li className="ml-8">
-                <span className="text-bold">181 records</span> (localised either
+                <span className="text-bold">182 records</span> (localised either
                 to the precise site or, approximately, to the level of the
                 commune;
               </li>
