@@ -13,7 +13,7 @@ export default class AppStore {
     this._center = observable.box([48, 2]);
     this._zoom = observable.box(7);
     this._extent = observable.box([]);
-    this._openWelcome = observable.box(false);
+    this._openWelcome = observable.box(true);
     this._data = data;
 
     this._filters = observable.box([
