@@ -90,8 +90,8 @@ export default class AppStore {
             },
           },
           {
-            label: "not-found",
-            value: "not-found",
+            label: "unknown",
+            value: "unknown",
             active: true,
             icon: {
               class: "gender-n",
@@ -122,7 +122,7 @@ export default class AppStore {
             } else if (itemStatus == "priory") {
               return options.find((o) => o.value === "priory").active;
             } else if (itemStatus == "status not found") {
-              return options.find((o) => o.value === "not-found").active;
+              return options.find((o) => o.value === "unknown").active;
             } else {
               return options.find((o) => o.value === "others").active;
             }
