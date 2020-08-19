@@ -13,7 +13,7 @@ export default class AppStore {
     this._center = observable.box([48, 2]);
     this._zoom = observable.box(7);
     this._extent = observable.box([]);
-    this._openWelcome = observable.box(true);
+    this._openWelcome = observable.box(false);
     this._data = data;
 
     this._filters = observable.box([
@@ -27,7 +27,7 @@ export default class AppStore {
             active: true,
             icon: {
               class: "gender-m",
-              shape: "⏹",
+              shape: "9632",
             },
           },
           {
@@ -36,7 +36,7 @@ export default class AppStore {
             active: true,
             icon: {
               class: "gender-f",
-              shape: "⏹",
+              shape: "9632",
             },
           },
           {
@@ -45,7 +45,7 @@ export default class AppStore {
             active: true,
             icon: {
               class: "gender-d",
-              shape: "⏹",
+              shape: "9632",
             },
           },
         ],
@@ -77,7 +77,7 @@ export default class AppStore {
             active: true,
             icon: {
               class: "gender-n",
-              shape: "▲",
+              shape: "9650", // ▲
             },
           },
           {
@@ -86,7 +86,7 @@ export default class AppStore {
             active: true,
             icon: {
               class: "gender-n",
-              shape: "⏺",
+              shape: "9679", // circle
             },
           },
           {
@@ -95,7 +95,7 @@ export default class AppStore {
             active: true,
             icon: {
               class: "gender-n",
-              shape: "❓",
+              shape: "9670", // ◆
             },
           },
           {
@@ -104,7 +104,7 @@ export default class AppStore {
             active: true,
             icon: {
               class: "gender-n",
-              shape: "⏹",
+              shape: "9632", // ■
             },
           },
         ],

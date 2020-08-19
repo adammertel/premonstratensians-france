@@ -24,17 +24,19 @@ type Props = {
 
 const iconSize = [20, 20];
 const createIcon = (item) => {
-  let iconShape = "⏹";
+  let iconShape = 9632;
   if (item["status_or_type"] === "abbey") {
-    iconShape = "⏺";
+    iconShape = 9679;
   } else if (item["status_or_type"] === "priory") {
-    iconShape = "▲";
+    iconShape = 9650;
   } else if (item["status_or_type"] === "status not found") {
-    iconShape = "❓";
+    iconShape = 9670;
   }
 
   return divIcon({
-    html: `<span class="icon gender-${item.gender}" style="font-size:${iconSize[0]}px">${iconShape}</span>`,
+    html: `<span class="icon-utf gender-${item.gender}" style="font-size:${
+      iconSize[0]
+    }px">${String.fromCharCode(iconShape)}</span>`,
     className: "marker-icon",
     iconAnchor: [iconSize[0] / 2, iconSize[1] / 2],
     iconSize: iconSize,

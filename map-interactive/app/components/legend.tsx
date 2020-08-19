@@ -32,7 +32,9 @@ const renderCheckbox = (checked, clickEvt, groupLabel, optionLabel, icon) => {
         {optionLabel}
       </span>
       <div className="marker-icon inline-flex text-lg align-center px-2 table-cell">
-        <span className={`icon ${icon.class}`}>{icon.shape}</span>
+        <span className={`icon-utf ${icon.class}`}>
+          {String.fromCharCode(icon.shape)}
+        </span>
       </div>
     </li>
   );
