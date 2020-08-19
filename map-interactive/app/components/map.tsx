@@ -2,6 +2,8 @@ import React, { useRef, useEffect } from "react";
 import { observer } from "mobx-react";
 import L, { divIcon } from "leaflet";
 
+import { globals } from "./../index";
+
 import MarkerClusterGroup from "react-leaflet-markercluster";
 import "leaflet.markercluster.placementstrategies";
 
@@ -24,13 +26,13 @@ type Props = {
 
 const iconSize = [20, 20];
 const createIcon = (item) => {
-  let iconShape = 9632;
+  let iconShape = globals.shapes.rectangle;
   if (item["status_or_type"] === "abbey") {
-    iconShape = 9679;
+    iconShape = globals.shapes.circle;
   } else if (item["status_or_type"] === "priory") {
-    iconShape = 9650;
+    iconShape = globals.shapes.triangle;
   } else if (item["status_or_type"] === "status not found") {
-    iconShape = 9670;
+    iconShape = globals.shapes.diamond;
   }
 
   return divIcon({

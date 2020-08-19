@@ -7,10 +7,16 @@ import * as ReactDOM from "react-dom";
 import { App } from "./components/app";
 import Store from "./store";
 
-var globals: { version; store; dates } = {
+var globals: { version; store; dates; shapes } = {
   version: process.env.npm_package_version,
   store: false,
   dates: [],
+  shapes: {
+    circle: 9679,
+    rectangle: 9632,
+    triangle: 9650,
+    diamond: 9670,
+  },
 };
 
 const parsingColsRules = {

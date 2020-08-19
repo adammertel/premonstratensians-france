@@ -27,7 +27,7 @@ export default class AppStore {
             active: true,
             icon: {
               class: "gender-m",
-              shape: "9632",
+              shape: globals.shapes.rectangle,
             },
           },
           {
@@ -36,7 +36,7 @@ export default class AppStore {
             active: true,
             icon: {
               class: "gender-f",
-              shape: "9632",
+              shape: globals.shapes.rectangle,
             },
           },
           {
@@ -45,7 +45,7 @@ export default class AppStore {
             active: true,
             icon: {
               class: "gender-d",
-              shape: "9632",
+              shape: globals.shapes.rectangle,
             },
           },
         ],
@@ -77,7 +77,7 @@ export default class AppStore {
             active: true,
             icon: {
               class: "gender-n",
-              shape: "9650", // ▲
+              shape: globals.shapes.triangle,
             },
           },
           {
@@ -86,7 +86,7 @@ export default class AppStore {
             active: true,
             icon: {
               class: "gender-n",
-              shape: "9679", // circle
+              shape: globals.shapes.circle,
             },
           },
           {
@@ -95,7 +95,7 @@ export default class AppStore {
             active: true,
             icon: {
               class: "gender-n",
-              shape: "9670", // ◆
+              shape: globals.shapes.diamond,
             },
           },
           {
@@ -104,7 +104,7 @@ export default class AppStore {
             active: true,
             icon: {
               class: "gender-n",
-              shape: "9632", // ■
+              shape: globals.shapes.rectangle,
             },
           },
         ],
