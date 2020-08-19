@@ -99,8 +99,8 @@ export const Legend: React.FC<LegendProps> = observer(({ store }) => {
                         setFilterDateInputFrom(newValue);
 
                         if (
-                          newValue < globals.dates[1] &&
-                          newValue > globals.dates[0] &&
+                          newValue <= globals.dates[1] &&
+                          newValue >= globals.dates[0] &&
                           newValue < filterDates[1]
                         ) {
                           setFilterDateInputFromValid(true);
@@ -126,8 +126,8 @@ export const Legend: React.FC<LegendProps> = observer(({ store }) => {
                         setFilterDateInputTo(newValue);
 
                         if (
-                          newValue < globals.dates[1] &&
-                          newValue > globals.dates[0] &&
+                          newValue <= globals.dates[1] &&
+                          newValue >= globals.dates[0] &&
                           newValue > filterDates[0]
                         ) {
                           setFilterDateInputToValid(true);
