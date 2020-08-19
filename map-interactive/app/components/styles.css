@@ -53,6 +53,14 @@ button.success {
     @apply z-10;
     @apply inset-y-0;
     @apply right-0;
+    .panel-content {
+      top: 160px;
+      bottom: 75px;
+      position: absolute;
+      width: 100%;
+      bottom: 75px;
+      overflow-y: auto;
+    }
     .legend {
       @apply p-4;
       .filter-group {

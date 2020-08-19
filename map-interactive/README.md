@@ -23,7 +23,7 @@ TODO 1.0.0
 - [x] Info box: delete spaces surrounding the dash
 - [x] Info box: if post quem and ante quem is exactly the same, put only the firm dates, i.e. 1957–2020 instead of 1957/1957 – 2020/2020
 - [x] Info box: bold only without underline
-- [ ] Time input for precise year
+- [x] Time input for precise year
 - [x] close Landing screen upon Esc
 - [x] Cassini map: enable closer zoom (labels not well legible yet in
 - [ ] DISSINET footer

@@ -8,12 +8,13 @@ type FooterProps = {
 
 export const Footer: React.FC<FooterProps> = ({ store }) => {
   return (
-    <div className="legend bg-gray-400 bottom-0 absolute w-full">
-      <div>
+    <div className="panel-footer absolute right-0 bottom-0 w-full bg-gray-500 m-0 z-20">
+      <div className="float-right">
         <a target="_blank" href="https://dissinet.cz">
           <svg
-            width="356"
-            height="136"
+            className="right-0"
+            width="178"
+            height="68"
             viewBox="0 0 178 68"
             fill="black"
             transform="scale(0.5 0.5)"
