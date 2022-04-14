@@ -58,11 +58,11 @@ const createTooltip = (item) => {
     <div key={item.id} className="tooltip">
       <div key="id" className="tooltip-heading">
         [{item.id}] <b className="name">{item.name}</b>
-        <i> ({item.localisation_precision})</i>
+        <i> ({item.localisation_certainty})</i>
       </div>
       <div key="time" className="tooltip-line">
         <i className="icon icon-clock"></i>
-        <span className="text">{`${yearsFrom}–${yearsTo}`}</span>
+        <span className="te`xt">{`${yearsFrom}–${yearsTo}`}</span>
       </div>
       <div key="place" className="tooltip-line">
         <i className="icon icon-location"></i>
