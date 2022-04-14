@@ -1,6 +1,6 @@
 {
   "name": "boilerplate_map",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "boilerplate for react-leaflet map applications",
   "author": "Adam Mertel <mertel.adam@gmail.com>",
   "license": "ISC",
