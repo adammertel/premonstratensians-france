@@ -134,15 +134,10 @@ export const MapComponent: React.FC<Props> = observer(
         >
           <ScaleControl />
           <LayersControl position="bottomright">
-            <LayersControl.BaseLayer
-              name="Ancient World Mapping Center"
-              checked={true}
-            >
+            <LayersControl.BaseLayer name="Open Street Maps" checked={true}>
               <TileLayer
-                key="awmc"
-                maxNativeZoom={15}
-                attribution="<a href='http://awmc.unc.edu/wordpress/'>Ancient World Mapping Center</a>"
-                url="http://a.tiles.mapbox.com/v3/isawnyu.map-knmctlkh/{z}/{x}/{y}.png"
+                attribution="&copy; <a href='https://www.openstreetmap.org/copyright'>OpenStreetMap</a> contributors"
+                url="https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png"
               />
             </LayersControl.BaseLayer>
             <LayersControl.BaseLayer name="Cassini map">
@@ -151,12 +146,6 @@ export const MapComponent: React.FC<Props> = observer(
                 maxNativeZoom={15}
                 attribution="<a href='chartae-antiquae.cz'>chartae-antiquae.cz</a>"
                 url="http://www.chartae-antiquae.cz/TMS/Francie/{z}/{x}/{y}.png"
-              />
-            </LayersControl.BaseLayer>
-            <LayersControl.BaseLayer name="Open Street Maps">
-              <TileLayer
-                attribution="&copy; <a href='https://www.openstreetmap.org/copyright'>OpenStreetMap</a> contributors"
-                url="https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png"
               />
             </LayersControl.BaseLayer>
             <LayersControl.BaseLayer name="Open Topo Maps">
