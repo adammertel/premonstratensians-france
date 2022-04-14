@@ -25,12 +25,7 @@
     "type": "git",
     "url": "git+https://github.com/adammertel/boilerplate_map.git"
   },
-  "keywords": [
-    "boilerplate",
-    "leaflet",
-    "react-leaflet",
-    "mobx"
-  ],
+  "keywords": [],
   "dependencies": {
     "classnames": "^2.2.6",
     "leaflet.markercluster": "^1.4.1",
