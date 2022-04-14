@@ -44,14 +44,15 @@ const parsedData = data
     };
   });
 
-console.log(parsedData);
-
 globals.store = new Store(parsedData);
+
 globals.dates = [
   //Math.min(...data.map((row) => row["foundation_earliest"])),
   1100,
   2020,
 ];
+globals.store.changeTimeValue([globals.dates[0], globals.dates[1]]);
+
 ReactDOM.render(
   React.createElement(App, { store: globals["store"] }),
   document.getElementById("app")
