@@ -115,13 +115,14 @@ export default class AppStore {
           } else if (options.every((o) => !o.active)) {
             return false;
           } else {
-            const itemStatus = item.status_or_type;
+            const itemStatus = item.status;
+            console.log(itemStatus);
 
             if (itemStatus == "abbey") {
               return options.find((o) => o.value === "abbey").active;
             } else if (itemStatus == "priory") {
               return options.find((o) => o.value === "priory").active;
-            } else if (itemStatus == "status not found") {
+            } else if (itemStatus == "unknown") {
               return options.find((o) => o.value === "unknown").active;
             } else {
               return options.find((o) => o.value === "others").active;
