@@ -160,6 +160,7 @@ export default class AppStore {
   @computed
   get activeData(): { y_coordinates; x_coordinates }[] {
     const dataFilters = this.filters;
+    console.log(this._data);
     return (
       this._data
         //.filter((i) => i.y_coordinates && i.x_coordinates)
