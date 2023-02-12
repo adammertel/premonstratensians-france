@@ -68,7 +68,7 @@
     "enzyme-to-json": "^3.5.0",
     "favicons-webpack-plugin": "^4.2.0",
     "file-loader": "^6.0.0",
-    "gts": "^2.0.2",
+    "gts": "^3.1.1",
     "html-webpack-plugin": "^4.3.0",
     "jest": "^26.2.2",
     "jest-environment-puppeteer": "^4.4.0",
